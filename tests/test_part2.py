@@ -74,6 +74,25 @@ def test_frozen_embeddings_do_not_change():
     assert m2.emb.weight.requires_grad
 
 
+def test_fine_tuning_does_not_modify_the_source_embedding_array():
+    """Regression test: from_pretrained(torch.as_tensor(array)) shares memory, so
+    fine-tuning used to change the caller's array (and every later model)."""
+    from part3 import BiLSTMClassifier
+    E = np.random.RandomState(0).randn(12, 6).astype(np.float32)
+    E_before = E.copy()
+    x, L = torch.tensor([[1, 2, 3, 4]]), torch.tensor([4])
+    for model, loss_fn in (
+            (BiLSTMTagger(3, 12, 6, pretrained=E, freeze=False, pad_idx=11, hidden=4),
+             lambda m: m.loss(x, L, torch.tensor([[0, 1, 2, 1]]), torch.ones(1, 4, dtype=torch.bool))),
+            (BiLSTMClassifier(E, pad_idx=11, hidden=4),
+             lambda m: m(x, L).sum())):
+        opt = torch.optim.Adam([p for p in model.parameters() if p.requires_grad], lr=0.1)
+        loss_fn(model).backward()
+        opt.step()
+        assert not np.allclose(model.emb.weight.detach().numpy(), E_before)   # it did train
+        assert np.array_equal(E, E_before)                                    # source untouched
+
+
 def _random_bio(rng, n):
     types = ["PER", "LOC", "ORG", "MISC"]
     out = []

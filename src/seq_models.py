@@ -96,7 +96,9 @@ class BiLSTMTagger(nn.Module):
                  dropout: float = 0.5, bidirectional: bool = True, use_crf: bool = False):
         super().__init__()
         if pretrained is not None:
-            weights = torch.as_tensor(pretrained, dtype=torch.float32)
+            # torch.tensor() *copies*; as_tensor/from_numpy would share memory with the
+            # caller's array, so fine-tuning would silently change it for later models
+            weights = torch.tensor(np.asarray(pretrained), dtype=torch.float32)
             self.emb = nn.Embedding.from_pretrained(weights, freeze=freeze, padding_idx=pad_idx)
         else:
             self.emb = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_idx)

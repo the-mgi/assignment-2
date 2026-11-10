@@ -70,8 +70,8 @@ class BiLSTMClassifier(nn.Module):
     def __init__(self, emb_matrix: np.ndarray, pad_idx: int, n_classes: int = 5,
                  hidden: int = 128, dropout: float = 0.5):
         super().__init__()
-        self.emb = nn.Embedding.from_pretrained(torch.as_tensor(emb_matrix, dtype=torch.float32),
-                                                freeze=False, padding_idx=pad_idx)
+        self.emb = nn.Embedding.from_pretrained(torch.tensor(np.asarray(emb_matrix), dtype=torch.float32),
+                                                freeze=False, padding_idx=pad_idx)   # copy
         self.lstm = nn.LSTM(emb_matrix.shape[1], hidden, num_layers=2, batch_first=True,
                             bidirectional=True, dropout=dropout)
         self.head = nn.Sequential(nn.Linear(4 * hidden, 64), nn.ReLU(), nn.Dropout(dropout),

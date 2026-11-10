@@ -915,7 +915,30 @@ print("BiLSTM confusion matrix (seed 42):"); print(pd.DataFrame(ev_bl["confusion
 
 md("ANALYSIS_COMPARISON")
 
-md("## Saved artefacts")
+md("""
+## Saved artefacts
+
+The three saved models are re-loaded from disk and re-evaluated on the test sets to check that the files
+reproduce the reported numbers.
+""")
+
+code("""
+from corpus import load_word2idx
+w2i_disk = load_word2idx(); assert w2i_disk == w2i
+checks = []
+for task, fname in (("pos", "bilstm_pos.pt"), ("ner", "bilstm_ner.pt")):
+    ck = torch.load(C.MODELS / fname, weights_only=False); cfg = SeqConfig(**ck["config"])
+    m = BiLSTMTagger(len(ck["tags"]), len(w2i_disk), C.W2V_DIM, pad_idx=ck["pad_idx"], hidden=cfg.hidden,
+                     layers=cfg.layers, dropout=cfg.dropout, bidirectional=cfg.bidirectional, use_crf=cfg.use_crf)
+    m.load_state_dict(ck["state_dict"])
+    _, _, f1 = run_eval(m, DATA2[task]["test"], cfg, ck["pad_idx"], ck["tags"])
+    checks.append({"file": f"models/{fname}", "reported test F1": round(ck["test_f1"], 2), "re-loaded test F1": round(f1, 2)})
+ck = torch.load(C.MODELS / "transformer_cls.pt", weights_only=False)
+m = make_transformer(w2i_disk); m.load_state_dict(ck["state_dict"])
+checks.append({"file": "models/transformer_cls.pt", "reported test F1": round(ev_tf["macro_f1"], 2),
+               "re-loaded test F1": round(evaluate(m, Xte, yte, Lte)["macro_f1"], 2)})
+pd.DataFrame(checks)
+""")
 
 code("""
 RESULTS["run"] = RUN
