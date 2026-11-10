@@ -17,7 +17,8 @@ from reportlab.lib.enums import TA_JUSTIFY
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "src"))
@@ -29,7 +30,8 @@ T = json.loads((ROOT / "report_text.json").read_text(encoding="utf-8"))
 FONT, BOLD = "Times-Roman", "Times-Bold"
 body = ParagraphStyle("body", fontName=FONT, fontSize=12, leading=18, alignment=TA_JUSTIFY,
                       spaceAfter=4)
-h1 = ParagraphStyle("h1", fontName=BOLD, fontSize=13, leading=18, spaceBefore=6, spaceAfter=2)
+h1 = ParagraphStyle("h1", fontName=BOLD, fontSize=13, leading=18, spaceBefore=6, spaceAfter=2,
+                    keepWithNext=1)
 title = ParagraphStyle("title", fontName=BOLD, fontSize=14, leading=18, alignment=1)
 sub = ParagraphStyle("sub", fontName=FONT, fontSize=12, leading=18, alignment=1)
 cell = ParagraphStyle("cell", fontName=FONT, fontSize=10, leading=12)
@@ -38,7 +40,7 @@ cellb = ParagraphStyle("cellb", fontName=BOLD, fontSize=10, leading=12)
 
 def table(rows, widths):
     data = [[Paragraph(str(c), cellb if i == 0 else cell) for c in r] for i, r in enumerate(rows)]
-    t = Table(data, colWidths=[w * cm for w in widths], hAlign="CENTER")
+    t = Table(data, colWidths=[w * cm for w in widths], hAlign="CENTER", repeatRows=1)
     t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
                            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#e8e8e8")),
                            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
@@ -53,7 +55,7 @@ def f(x, d=1):
 def build():
     story = [Paragraph(f"{C.COURSE} — Assignment 2: Neural NLP Pipeline on BBC Urdu", title),
              Paragraph(f"{C.STUDENT_NAME} · {C.STUDENT_ID} · Section {C.SECTION} · "
-                       f"Repository: {C.REPO_URL}", sub), Spacer(1, 4)]
+                       f"Repository: {escape(C.REPO_URL)}", sub), Spacer(1, 4)]
 
     story += [Paragraph("1. Overview", h1), Paragraph(T["overview"], body)]
 
@@ -91,8 +93,8 @@ def build():
 
     story += [Paragraph("5. Conclusion", h1), Paragraph(T["conclusion"], body)]
 
-    doc = SimpleDocTemplate(str(ROOT / "report.pdf"), pagesize=A4, leftMargin=2.2 * cm,
-                            rightMargin=2.2 * cm, topMargin=1.8 * cm, bottomMargin=1.8 * cm,
+    doc = SimpleDocTemplate(str(ROOT / "report.pdf"), pagesize=A4, leftMargin=2.0 * cm,
+                            rightMargin=2.0 * cm, topMargin=1.6 * cm, bottomMargin=1.6 * cm,
                             title="DS5007 Assignment 2 Report", author=C.STUDENT_NAME)
     doc.build(story)
 
