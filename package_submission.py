@@ -30,6 +30,7 @@ REQUIRED = [
 ]
 EXTRA_DIRS = ["src", "tests", "tools", "scripts", "figures", "outputs", "data"]
 EXTRA_FILES = ["README.md", "requirements.txt", "build_notebook.py", "build_report.py",
+               "notebook_analysis.json", "report_text.json",
                "package_submission.py", ".gitignore"]
 SKIP = {"__pycache__", ".pytest_cache", ".ipynb_checkpoints"}
 
