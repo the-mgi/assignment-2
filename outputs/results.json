@@ -1,0 +1,941 @@
+{
+ "topic_distribution": {
+  "Politics": 25,
+  "Sports": 20,
+  "Economy": 22,
+  "International": 66,
+  "Health & Society": 117
+ },
+ "tfidf_top10": {
+  "Politics": [
+   "ٹرمپ",
+   "صحافت",
+   "میڈ",
+   "ہارپ",
+   "مود",
+   "صحافی",
+   "صدر",
+   "خان",
+   "وائٹ",
+   "علیمہ"
+  ],
+  "Sports": [
+   "کرکٹ",
+   "کھیل",
+   "ٹیم",
+   "ٹیسٹ",
+   "میچ",
+   "رنز",
+   "کھلاڑی",
+   "انگلینڈ",
+   "وکٹ",
+   "کپتان"
+  ],
+  "Economy": [
+   "تیل",
+   "قیمت",
+   "پیٹرول",
+   "روپ",
+   "لیٹر",
+   "بیرل",
+   "ڈیزل",
+   "آبنائ",
+   "خام",
+   "بندرگاہ"
+  ],
+  "International": [
+   "ایران",
+   "امر",
+   "سعود",
+   "عرب",
+   "میزائل",
+   "معاہد",
+   "روس",
+   "فوج",
+   "جہاز",
+   "خالد"
+  ],
+  "Health & Society": [
+   "بچہ",
+   "پولیس",
+   "خواتین",
+   "ملزم",
+   "ریپ",
+   "خاتون",
+   "فلم",
+   "بچی",
+   "ڈاکٹر",
+   "ڈرام"
+  ]
+ },
+ "ppmi_neighbours": {
+  "پاکستان (Pakistan)": [
+   "کرکٹ (0.24)",
+   "ٹیم (0.20)",
+   "پاکستا (0.17)",
+   "کے (0.16)",
+   "نے (0.16)"
+  ],
+  "حکومت (government)": [
+   "وزیر (0.17)",
+   "صدر (0.15)",
+   "ریاس (0.15)",
+   "طالبان (0.15)",
+   "اقت (0.14)"
+  ],
+  "عدالت (court)": [
+   "کورٹ (0.22)",
+   "مقدم (0.21)",
+   "درخواست (0.21)",
+   "ملزمان (0.19)",
+   "سپریم (0.18)"
+  ],
+  "فوج (army)": [
+   "جنرل (0.17)",
+   "اسرائیل (0.17)",
+   "افواج (0.17)",
+   "اہداف (0.17)",
+   "ایران (0.17)"
+  ],
+  "صحت (health)": [
+   "مند (0.22)",
+   "ذہن (0.20)",
+   "یاب (0.19)",
+   "طبی (0.15)",
+   "مسائل (0.14)"
+  ],
+  "تعلیم (education)": [
+   "حاصل (0.15)",
+   "لڑکی (0.14)",
+   "یونیورسٹ (0.13)",
+   "آمنہ (0.12)",
+   "سکول (0.12)"
+  ],
+  "کرکٹ (cricket)": [
+   "بورڈ (0.30)",
+   "ٹیم (0.24)",
+   "پاکستان (0.24)",
+   "کوچ (0.20)",
+   "کمنٹیٹر (0.20)"
+  ],
+  "تیل (oil)": [
+   "خام (0.61)",
+   "بیرل (0.35)",
+   "برآمد (0.33)",
+   "آبنائ (0.30)",
+   "ہرمز (0.30)"
+  ],
+  "پولیس (police)": [
+   "کوہاٹ (0.21)",
+   "افسر (0.21)",
+   "لائنز (0.18)",
+   "ملزم (0.18)",
+   "سٹی (0.18)"
+  ],
+  "ایران (Iran)": [
+   "ایرا (0.24)",
+   "تیل (0.20)",
+   "ہرمز (0.19)",
+   "جنگ (0.19)",
+   "چین (0.19)"
+  ]
+ },
+ "w2v_epoch_losses": [
+  3.2571421872213118,
+  3.0315220704732506,
+  2.9688672126988362,
+  2.9231264226125275,
+  2.8879247988961843,
+  2.8604191933945535,
+  2.8390904348468613,
+  2.8217421119812403,
+  2.808749420808872,
+  2.798179352008094,
+  2.790082767559267,
+  2.7836374535028914,
+  2.77790611435218,
+  2.772928441344984,
+  2.7689635792315035
+ ],
+ "w2v_neighbours": {
+  "Pakistan": "کرکٹ 0.64، لیگ 0.62، بورڈ 0.61، بلتستان 0.60، گلگت 0.59، ہاک 0.57، انگلینڈ 0.57، شکست 0.56، انڈ 0.56، ویمنز 0.56",
+  "Hukumat": "مطالبہ 0.58، پیٹرولیئم 0.55، انصاف 0.54، حکمران 0.54، ریاس 0.54، پیٹرولیم 0.54، طالبان 0.54، مدھیہ 0.52، حکوم 0.51، محکمہ 0.51",
+  "Adalat": "جج 0.66، درخواست 0.64، مقدم 0.63، استدع 0.62، چٹھہ 0.57، سزا 0.57، اپیل 0.57، کورٹ 0.56، وکیل 0.56، دائر 0.56",
+  "Maeeshat": "معاش 0.60، قلت 0.59، زر 0.58، قیمت 0.58، مہنگا 0.57، اثر 0.56، تیل 0.55، عالم 0.53، سکڑ 0.53، ایرا 0.52",
+  "Fauj": "کمانڈر 0.63، عسکر 0.61، کمان 0.58، افواج 0.58، اسرائیل 0.57، کارروائی 0.56، اتحاد 0.56، بنگلہ 0.55، اہداف 0.55، دیش 0.54",
+  "Sehat": "یاب 0.61، ذہن 0.59، شوگر 0.57، کمال 0.55، مسائل 0.55، مند 0.53، تولید 0.53، معائ 0.53، بگڑ 0.52، طبی 0.51",
+  "Taleem": "انجینیئرنگ 0.56، طالبعلم 0.52، سکول 0.51، رقص 0.50، پڑھا 0.49، ملازمت 0.48، حاصل 0.47، لڑکی 0.47، متحد 0.46، پریشر 0.46",
+  "Aabadi": "اسلام 0.83، لاہور 0.59، شمائلہ 0.57، کابل 0.54، دارالحکومت 0.54، تھانہ 0.53، نعیم 0.52، راولپنڈ 0.51، کورٹ 0.51، ہاد 0.50"
+ },
+ "analogies": {
+  "top1": 4,
+  "top3": 5,
+  "rows": [
+   {
+    "relation": "country : capital",
+    "analogy": "روس : ماسکو :: انڈ : ?",
+    "expected": "دہل (Delhi (<-دہلی))",
+    "top-3 candidates": "پریس 0.55، ڈے 0.55، ٹوڈ 0.51",
+    "top-1": "✗",
+    "in top-3": "✗"
+   },
+   {
+    "relation": "country : leader",
+    "analogy": "امریکہ : ٹرمپ :: روس : ?",
+    "expected": "پوتن (Putin)",
+    "top-3 candidates": "ولادیمیر 0.63، پوتن 0.61، صدر 0.58",
+    "top-1": "✗",
+    "in top-3": "✓"
+   },
+   {
+    "relation": "country : leader",
+    "analogy": "امریکہ : ٹرمپ :: اسرائیل : ?",
+    "expected": "نیتن (Netanyahu (<-نیتن یاہو))",
+    "top-3 candidates": "ڈونلڈ 0.60، اوسوف 0.56، صدر 0.56",
+    "top-1": "✗",
+    "in top-3": "✗"
+   },
+   {
+    "relation": "country : demonym",
+    "analogy": "پاکستان : پاکستا :: انڈ : ?",
+    "expected": "انڈین (Indian)",
+    "top-3 candidates": "انڈین 0.50، کثیر 0.48، بحریہ 0.48",
+    "top-1": "✓",
+    "in top-3": "✓"
+   },
+   {
+    "relation": "first name : surname",
+    "analogy": "عمران : خان :: شہباز : ?",
+    "expected": "شریف (Sharif)",
+    "top-3 candidates": "شریف 0.76، وزیراعظم 0.65، اعظم 0.54",
+    "top-1": "✓",
+    "in top-3": "✓"
+   },
+   {
+    "relation": "first name : surname",
+    "analogy": "ڈونلڈ : ٹرمپ :: نریندر : ?",
+    "expected": "مود (Modi (<-مودی))",
+    "top-3 candidates": "مود 0.74، وینس 0.54، اوسوف 0.53",
+    "top-1": "✓",
+    "in top-3": "✓"
+   },
+   {
+    "relation": "institution : professional",
+    "analogy": "عدالت : جج :: ہسپتال : ?",
+    "expected": "ڈاکٹر (doctor)",
+    "top-3 candidates": "پمز 0.60، وارڈ 0.58، گاندھ 0.56",
+    "top-1": "✗",
+    "in top-3": "✗"
+   },
+   {
+    "relation": "male : female",
+    "analogy": "مرد : عورت :: بھا : ?",
+    "expected": "بہن (sister)",
+    "top-3 candidates": "منتظم 0.49، فوت 0.47، آپ 0.47",
+    "top-1": "✗",
+    "in top-3": "✗"
+   },
+   {
+    "relation": "armed group : territory",
+    "analogy": "حماس : غزہ :: طالبان : ?",
+    "expected": "افغانستان (Afghanistan)",
+    "top-3 candidates": "ازا 0.51، منسلک 0.49، صوب 0.48",
+    "top-1": "✗",
+    "in top-3": "✗"
+   },
+   {
+    "relation": "commodity : unit",
+    "analogy": "تیل : بیرل :: پیٹرول : ?",
+    "expected": "لیٹر (litre)",
+    "top-3 candidates": "لیٹر 0.81، فی 0.72، روپ 0.68",
+    "top-1": "✓",
+    "in top-3": "✓"
+   }
+  ]
+ },
+ "mrr": [
+  {
+   "condition": "C1 PPMI",
+   "MRR": 0.3419,
+   "pairs found": 20,
+   "median rank": 5,
+   "related word ranked 1st": 4,
+   "in top-10": 14
+  },
+  {
+   "condition": "C2 skip-gram raw",
+   "MRR": 0.2358,
+   "pairs found": 20,
+   "median rank": 10,
+   "related word ranked 1st": 2,
+   "in top-10": 11
+  },
+  {
+   "condition": "C3 skip-gram cleaned",
+   "MRR": 0.2903,
+   "pairs found": 20,
+   "median rank": 9,
+   "related word ranked 1st": 3,
+   "in top-10": 11
+  },
+  {
+   "condition": "C4 skip-gram d=200",
+   "MRR": 0.2354,
+   "pairs found": 20,
+   "median rank": 6,
+   "related word ranked 1st": 1,
+   "in top-10": 12
+  }
+ ],
+ "pos_distribution": {
+  "train": {
+   "NOUN": 2439,
+   "VERB": 891,
+   "ADJ": 579,
+   "ADV": 465,
+   "PRON": 483,
+   "DET": 295,
+   "CONJ": 514,
+   "POST": 2011,
+   "NUM": 201,
+   "PUNC": 619,
+   "AUX": 715,
+   "UNK": 432
+  },
+  "val": {
+   "NOUN": 538,
+   "VERB": 188,
+   "ADJ": 130,
+   "ADV": 84,
+   "PRON": 82,
+   "DET": 60,
+   "CONJ": 85,
+   "POST": 432,
+   "NUM": 36,
+   "PUNC": 124,
+   "AUX": 140,
+   "UNK": 88
+  },
+  "test": {
+   "NOUN": 520,
+   "VERB": 186,
+   "ADJ": 133,
+   "ADV": 91,
+   "PRON": 88,
+   "DET": 56,
+   "CONJ": 104,
+   "POST": 405,
+   "NUM": 38,
+   "PUNC": 154,
+   "AUX": 162,
+   "UNK": 99
+  },
+  "total": {
+   "NOUN": 3497,
+   "VERB": 1265,
+   "ADJ": 842,
+   "ADV": 640,
+   "PRON": 653,
+   "DET": 411,
+   "CONJ": 703,
+   "POST": 2848,
+   "NUM": 275,
+   "PUNC": 897,
+   "AUX": 1017,
+   "UNK": 619
+  }
+ },
+ "ner_distribution": {
+  "train": {
+   "O": 9255,
+   "B-PER": 61,
+   "I-PER": 38,
+   "B-LOC": 147,
+   "I-LOC": 24,
+   "B-ORG": 29,
+   "I-ORG": 25,
+   "B-MISC": 56,
+   "I-MISC": 9
+  },
+  "val": {
+   "O": 1899,
+   "B-PER": 11,
+   "I-PER": 11,
+   "B-LOC": 34,
+   "I-LOC": 5,
+   "B-ORG": 6,
+   "I-ORG": 6,
+   "B-MISC": 13,
+   "I-MISC": 2
+  },
+  "test": {
+   "O": 1963,
+   "B-PER": 12,
+   "I-PER": 7,
+   "B-LOC": 26,
+   "I-LOC": 2,
+   "B-ORG": 7,
+   "I-ORG": 9,
+   "B-MISC": 10,
+   "I-MISC": 0
+  },
+  "total": {
+   "O": 13117,
+   "B-PER": 84,
+   "I-PER": 56,
+   "B-LOC": 207,
+   "I-LOC": 31,
+   "B-ORG": 42,
+   "I-ORG": 40,
+   "B-MISC": 79,
+   "I-MISC": 11
+  }
+ },
+ "seq_summary": [
+  {
+   "model": "POS frozen",
+   "metric": "macro-F1",
+   "val F1 (seed 42)": 82.36,
+   "test F1 (seed 42)": 82.23,
+   "val F1 mean ± std": "82.24 ± 0.44",
+   "test F1 mean ± std": "81.85 ± 0.47",
+   "best epoch (seeds)": [
+    26,
+    24,
+    39
+   ]
+  },
+  {
+   "model": "POS fine-tuned",
+   "metric": "macro-F1",
+   "val F1 (seed 42)": 89.48,
+   "test F1 (seed 42)": 87.81,
+   "val F1 mean ± std": "89.15 ± 0.35",
+   "test F1 mean ± std": "88.57 ± 0.55",
+   "best epoch (seeds)": [
+    13,
+    15,
+    12
+   ]
+  },
+  {
+   "model": "POS A1 unidirectional",
+   "metric": "macro-F1",
+   "val F1 (seed 42)": 83.78,
+   "test F1 (seed 42)": 83.89,
+   "val F1 mean ± std": "83.50 ± 0.27",
+   "test F1 mean ± std": "83.13 ± 0.80",
+   "best epoch (seeds)": [
+    21,
+    18,
+    15
+   ]
+  },
+  {
+   "model": "POS A2 no dropout",
+   "metric": "macro-F1",
+   "val F1 (seed 42)": 88.64,
+   "test F1 (seed 42)": 87.79,
+   "val F1 mean ± std": "88.71 ± 0.09",
+   "test F1 mean ± std": "88.23 ± 0.52",
+   "best epoch (seeds)": [
+    12,
+    9,
+    12
+   ]
+  },
+  {
+   "model": "POS A3 random init",
+   "metric": "macro-F1",
+   "val F1 (seed 42)": 86.09,
+   "test F1 (seed 42)": 84.12,
+   "val F1 mean ± std": "85.86 ± 0.27",
+   "test F1 mean ± std": "84.34 ± 0.56",
+   "best epoch (seeds)": [
+    34,
+    19,
+    23
+   ]
+  },
+  {
+   "model": "NER frozen",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 49.09,
+   "test F1 (seed 42)": 39.18,
+   "val F1 mean ± std": "47.99 ± 2.91",
+   "test F1 mean ± std": "39.34 ± 3.38",
+   "best epoch (seeds)": [
+    30,
+    32,
+    22
+   ]
+  },
+  {
+   "model": "NER fine-tuned (CRF)",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 69.64,
+   "test F1 (seed 42)": 64.76,
+   "val F1 mean ± std": "70.36 ± 3.35",
+   "test F1 mean ± std": "69.90 ± 3.79",
+   "best epoch (seeds)": [
+    32,
+    36,
+    30
+   ]
+  },
+  {
+   "model": "NER A1 unidirectional",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 34.15,
+   "test F1 (seed 42)": 42.59,
+   "val F1 mean ± std": "44.81 ± 15.46",
+   "test F1 mean ± std": "46.37 ± 5.54",
+   "best epoch (seeds)": [
+    19,
+    19,
+    49
+   ]
+  },
+  {
+   "model": "NER A2 no dropout",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 65.49,
+   "test F1 (seed 42)": 64.76,
+   "val F1 mean ± std": "68.23 ± 2.00",
+   "test F1 mean ± std": "70.96 ± 4.59",
+   "best epoch (seeds)": [
+    20,
+    36,
+    33
+   ]
+  },
+  {
+   "model": "NER A3 random init",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 57.43,
+   "test F1 (seed 42)": 63.37,
+   "val F1 mean ± std": "58.82 ± 1.06",
+   "test F1 mean ± std": "58.48 ± 4.73",
+   "best epoch (seeds)": [
+    26,
+    31,
+    27
+   ]
+  },
+  {
+   "model": "NER A4 softmax (no CRF)",
+   "metric": "entity F1",
+   "val F1 (seed 42)": 62.5,
+   "test F1 (seed 42)": 66.67,
+   "val F1 mean ± std": "61.75 ± 2.48",
+   "test F1 mean ± std": "62.39 ± 3.44",
+   "best epoch (seeds)": [
+    26,
+    30,
+    26
+   ]
+  }
+ ],
+ "pos_test": {
+  "model": "POS fine-tuned",
+  "accuracy": 89.78388998035363,
+  "macro_f1": 87.8083312340242,
+  "tokens": 2036
+ },
+ "pos_confused_pairs": [
+  [
+   "NOUN",
+   "UNK",
+   58
+  ],
+  [
+   "NOUN",
+   "ADJ",
+   43
+  ],
+  [
+   "NOUN",
+   "VERB",
+   18
+  ]
+ ],
+ "pos_modes": [
+  {
+   "embedding mode": "POS frozen",
+   "val macro-F1 (seed 42)": 82.36,
+   "test accuracy (seed 42)": 84.33,
+   "test macro-F1 (seed 42)": 82.23,
+   "test accuracy mean ± std": "84.05 ± 0.27",
+   "test macro-F1 mean ± std": "81.85 ± 0.47",
+   "epochs to best (seed 42)": 26
+  },
+  {
+   "embedding mode": "POS fine-tuned",
+   "val macro-F1 (seed 42)": 89.48,
+   "test accuracy (seed 42)": 89.78,
+   "test macro-F1 (seed 42)": 87.81,
+   "test accuracy mean ± std": "90.19 ± 0.29",
+   "test macro-F1 mean ± std": "88.57 ± 0.55",
+   "epochs to best (seed 42)": 13
+  }
+ ],
+ "ner_test": {
+  "model": "NER fine-tuned (CRF)",
+  "precision": 68.0,
+  "recall": 61.81818181818182,
+  "f1": 64.76190476190477,
+  "per_type": {
+   "LOC": {
+    "precision": 73.33333333333333,
+    "recall": 84.61538461538461,
+    "f1": 78.57142857142856,
+    "found": 30,
+    "gold": 26,
+    "correct": 22
+   },
+   "MISC": {
+    "precision": 66.66666666666667,
+    "recall": 60.0,
+    "f1": 63.15789473684211,
+    "found": 9,
+    "gold": 10,
+    "correct": 6
+   },
+   "ORG": {
+    "precision": 25.0,
+    "recall": 14.285714285714286,
+    "f1": 18.181818181818183,
+    "found": 4,
+    "gold": 7,
+    "correct": 1
+   },
+   "PER": {
+    "precision": 71.42857142857143,
+    "recall": 41.666666666666664,
+    "f1": 52.63157894736842,
+    "found": 7,
+    "gold": 12,
+    "correct": 5
+   }
+  }
+ },
+ "ner_crf_vs_softmax": [
+  {
+   "output layer": "CRF + Viterbi",
+   "P (seed 42)": 68.0,
+   "R (seed 42)": 61.82,
+   "F1 (seed 42)": 64.76,
+   "F1 mean ± std": "69.90 ± 3.79",
+   "P mean": 74.23,
+   "R mean": 66.06,
+   "PER F1 (seed 42)": 52.63,
+   "LOC F1 (seed 42)": 78.57,
+   "ORG F1 (seed 42)": 18.18,
+   "MISC F1 (seed 42)": 63.16
+  },
+  {
+   "output layer": "softmax (per-token argmax)",
+   "P (seed 42)": 72.34,
+   "R (seed 42)": 61.82,
+   "F1 (seed 42)": 66.67,
+   "F1 mean ± std": "62.39 ± 3.44",
+   "P mean": 66.52,
+   "R mean": 58.79,
+   "PER F1 (seed 42)": 57.14,
+   "LOC F1 (seed 42)": 79.31,
+   "ORG F1 (seed 42)": 0.0,
+   "MISC F1 (seed 42)": 62.5
+  }
+ ],
+ "ner_fp": [
+  {
+   "sent": 6,
+   "span": "مصطف",
+   "pred_type": "ORG",
+   "gold": [
+    [
+     "مصطف نواز",
+     "PER"
+    ]
+   ],
+   "context": "مصطف نواز کھوکھر نے اس"
+  },
+  {
+   "sent": 6,
+   "span": "نواز",
+   "pred_type": "PER",
+   "gold": [
+    [
+     "مصطف نواز",
+     "PER"
+    ]
+   ],
+   "context": "مصطف نواز کھوکھر نے اس شق"
+  },
+  {
+   "sent": 23,
+   "span": "فاطمہ ثنا",
+   "pred_type": "PER",
+   "gold": [
+    [
+     "فاطمہ",
+     "PER"
+    ]
+   ],
+   "context": "بات کا ادراک کپتان فاطمہ ثنا کو بھی ہے جنھ"
+  },
+  {
+   "sent": 27,
+   "span": "سعود",
+   "pred_type": "MISC",
+   "gold": [],
+   "context": "روز کھیل کے دوران سعود شکیل کی <NUM> رنز"
+  },
+  {
+   "sent": 29,
+   "span": "پاکستان",
+   "pred_type": "LOC",
+   "gold": [
+    [
+     "پاکستان کرکٹ بورڈ",
+     "ORG"
+    ]
+   ],
+   "context": "وال سابق کرکٹرز اور پاکستان کرکٹ بورڈ سے بات"
+  }
+ ],
+ "ner_fn": [
+  {
+   "sent": 6,
+   "span": "مصطف نواز",
+   "gold_type": "PER",
+   "pred": [
+    [
+     "نواز",
+     "PER"
+    ],
+    [
+     "مصطف",
+     "ORG"
+    ]
+   ],
+   "context": "مصطف نواز کھوکھر نے اس شق"
+  },
+  {
+   "sent": 9,
+   "span": "خیبر پختونخو",
+   "gold_type": "LOC",
+   "pred": [],
+   "context": "فرزانہ علی خیبر پختونخو کے شہر پشاور میں"
+  },
+  {
+   "sent": 9,
+   "span": "پشاور",
+   "gold_type": "LOC",
+   "pred": [],
+   "context": "خیبر پختونخو کے شہر پشاور میں آج نیوز سے"
+  },
+  {
+   "sent": 14,
+   "span": "انور ابراہیم",
+   "gold_type": "PER",
+   "pred": [],
+   "context": "اس پر انور ابراہیم کا کہن تھا کہ"
+  },
+  {
+   "sent": 21,
+   "span": "جیو نیوز",
+   "gold_type": "ORG",
+   "pred": [],
+   "context": "طلال چوہدر نے ’ جیو نیوز ‘ سے گفتگو کرتا"
+  }
+ ],
+ "ablations": [
+  {
+   "task": "POS",
+   "model": "POS fine-tuned",
+   "val F1 mean ± std": "89.15 ± 0.35",
+   "test F1 mean ± std": "88.57 ± 0.55",
+   "Δ test F1 vs full model": "—",
+   "test F1 per seed": [
+    87.8,
+    88.9,
+    89.0
+   ]
+  },
+  {
+   "task": "POS",
+   "model": "POS A1 unidirectional",
+   "val F1 mean ± std": "83.50 ± 0.27",
+   "test F1 mean ± std": "83.13 ± 0.80",
+   "Δ test F1 vs full model": "-5.44",
+   "test F1 per seed": [
+    83.9,
+    83.5,
+    82.0
+   ]
+  },
+  {
+   "task": "POS",
+   "model": "POS A2 no dropout",
+   "val F1 mean ± std": "88.71 ± 0.09",
+   "test F1 mean ± std": "88.23 ± 0.52",
+   "Δ test F1 vs full model": "-0.34",
+   "test F1 per seed": [
+    87.8,
+    87.9,
+    89.0
+   ]
+  },
+  {
+   "task": "POS",
+   "model": "POS A3 random init",
+   "val F1 mean ± std": "85.86 ± 0.27",
+   "test F1 mean ± std": "84.34 ± 0.56",
+   "Δ test F1 vs full model": "-4.24",
+   "test F1 per seed": [
+    84.1,
+    85.1,
+    83.8
+   ]
+  },
+  {
+   "task": "NER",
+   "model": "NER fine-tuned (CRF)",
+   "val F1 mean ± std": "70.36 ± 3.35",
+   "test F1 mean ± std": "69.90 ± 3.79",
+   "Δ test F1 vs full model": "—",
+   "test F1 per seed": [
+    64.8,
+    71.2,
+    73.8
+   ]
+  },
+  {
+   "task": "NER",
+   "model": "NER A1 unidirectional",
+   "val F1 mean ± std": "44.81 ± 15.46",
+   "test F1 mean ± std": "46.37 ± 5.54",
+   "Δ test F1 vs full model": "-23.53",
+   "test F1 per seed": [
+    42.6,
+    42.3,
+    54.2
+   ]
+  },
+  {
+   "task": "NER",
+   "model": "NER A2 no dropout",
+   "val F1 mean ± std": "68.23 ± 2.00",
+   "test F1 mean ± std": "70.96 ± 4.59",
+   "Δ test F1 vs full model": "+1.06",
+   "test F1 per seed": [
+    64.8,
+    75.7,
+    72.4
+   ]
+  },
+  {
+   "task": "NER",
+   "model": "NER A3 random init",
+   "val F1 mean ± std": "58.82 ± 1.06",
+   "test F1 mean ± std": "58.48 ± 4.73",
+   "Δ test F1 vs full model": "-11.42",
+   "test F1 per seed": [
+    63.4,
+    52.1,
+    60.0
+   ]
+  },
+  {
+   "task": "NER",
+   "model": "NER A4 softmax (no CRF)",
+   "val F1 mean ± std": "61.75 ± 2.48",
+   "test F1 mean ± std": "62.39 ± 3.44",
+   "Δ test F1 vs full model": "-7.51",
+   "test F1 per seed": [
+    66.7,
+    62.3,
+    58.3
+   ]
+  }
+ ],
+ "part3_distribution": {
+  "train": {
+   "Politics": 18,
+   "Sports": 14,
+   "Economy": 15,
+   "International": 46,
+   "Health & Society": 82
+  },
+  "val": {
+   "Politics": 4,
+   "Sports": 3,
+   "Economy": 3,
+   "International": 10,
+   "Health & Society": 18
+  },
+  "test": {
+   "Politics": 3,
+   "Sports": 3,
+   "Economy": 4,
+   "International": 10,
+   "Health & Society": 17
+  },
+  "total": {
+   "Politics": 25,
+   "Sports": 20,
+   "Economy": 22,
+   "International": 66,
+   "Health & Society": 117
+  }
+ },
+ "transformer_test": {
+  "accuracy": 78.37837837837837,
+  "macro_f1": 72.89610389610391,
+  "best_epoch": 18,
+  "final_epoch_accuracy": 78.37837837837837,
+  "final_epoch_macro_f1": 72.89610389610391
+ },
+ "bilstm_vs_transformer": [
+  {
+   "model": "Transformer",
+   "parameters": 2082309,
+   "test acc (seed 42)": 78.38,
+   "test macro-F1 (seed 42)": 72.9,
+   "test acc mean ± std": "77.48 ± 3.37",
+   "test macro-F1 mean ± std": "64.71 ± 7.23",
+   "best val epoch per seed": [
+    18,
+    17,
+    17
+   ],
+   "seconds / epoch (mean)": 3.7
+  },
+  {
+   "model": "BiLSTM",
+   "parameters": 1664141,
+   "test acc (seed 42)": 67.57,
+   "test macro-F1 (seed 42)": 47.29,
+   "test acc mean ± std": "71.17 ± 3.37",
+   "test macro-F1 mean ± std": "54.23 ± 5.24",
+   "best val epoch per seed": [
+    13,
+    19,
+    15
+   ],
+   "seconds / epoch (mean)": 1.66
+  }
+ ],
+ "run": {
+  "seeds": [
+   42,
+   7,
+   123
+  ],
+  "w2v_epochs": 15,
+  "seq_max_epochs": 60,
+  "tf_epochs": 20,
+  "w2v_limit": null
+ }
+}
