@@ -1,0 +1,11 @@
+# CPU build is enough: every experiment in this repo was run on a 4-core CPU.
+torch>=2.2
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4      # t-SNE only (no models / no pretrained weights)
+matplotlib>=3.10       # >=3.10 shapes Urdu (RTL) text correctly
+jupyter
+nbclient
+nbformat
+pytest
+reportlab              # report.pdf
