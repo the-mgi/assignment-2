@@ -124,7 +124,7 @@ def train_skipgram(sentences: list[list[str]], w2i: dict, dim: int = C.W2V_DIM,
                    epochs: int = C.W2V_EPOCHS, batch_size: int = C.W2V_BATCH,
                    lr: float = C.W2V_LR, subsample_t: float | None = C.W2V_SUBSAMPLE,
                    seed: int = C.SEED, log_every: int = 200, verbose: bool = True,
-                   snapshot_epochs: tuple[int, ...] = ()) -> dict:
+                   snapshot_epochs: tuple[int, ...] = (), print_every: int = 0) -> dict:
     """Train on `sentences`; vocabulary rows 0..|V|-1 exclude <PAD>.
 
     With `subsample_t`, frequent tokens are randomly discarded *before* the
@@ -175,6 +175,9 @@ def train_skipgram(sentences: list[list[str]], w2i: dict, dim: int = C.W2V_DIM,
                 step_losses.append(running / n_run)
                 log_steps.append(step)
                 running, n_run = 0.0, 0
+                if verbose and print_every and step % print_every == 0:
+                    print(f"    step {step:6d}  loss (mean of last {log_every} batches) "
+                          f"{step_losses[-1]:.4f}")
         epoch_losses.append(ep_sum / ep_n)
         if ep in snapshot_epochs:
             snapshots[ep] = model.embeddings()

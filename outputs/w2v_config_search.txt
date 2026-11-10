@@ -1,0 +1,18 @@
+# Output of the configuration search for C3 (skip-gram on cleaned.txt, d=100,
+# k=5, K=10, Adam 1e-3, batch 512, seed 42). DEV = 180 development analogies
+# (eval_sets.dev_pool), disjoint from the 10 reported analogy tests; candidate
+# answers restricted to words with >= 5 occurrences. MRR on the 20 word pairs is
+# shown for information only (not used for selection).
+subsample=None   epochs= 5  DEV top1=0.244 top3=0.361  MRR=0.230
+subsample=None   epochs=10  DEV top1=0.250 top3=0.378  MRR=0.285
+subsample=None   epochs=15  DEV top1=0.261 top3=0.428  MRR=0.290
+subsample=None   epochs=20  DEV top1=0.278 top3=0.417  MRR=0.307
+subsample=0.0001 epochs= 5  DEV top1=0.261 top3=0.394  MRR=0.293
+subsample=0.0001 epochs=10  DEV top1=0.267 top3=0.389  MRR=0.295
+subsample=0.0001 epochs=15  DEV top1=0.283 top3=0.389  MRR=0.274
+subsample=0.0001 epochs=20  DEV top1=0.256 top3=0.378  MRR=0.257
+subsample=0.001  epochs= 5  DEV top1=0.272 top3=0.372  MRR=0.240
+subsample=0.001  epochs=10  DEV top1=0.311 top3=0.372  MRR=0.284
+subsample=0.001  epochs=15  DEV top1=0.294 top3=0.372  MRR=0.291
+subsample=0.001  epochs=20  DEV top1=0.294 top3=0.378  MRR=0.333
+selected: subsample=None epochs=15

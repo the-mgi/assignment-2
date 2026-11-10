@@ -60,10 +60,10 @@ W2V_WINDOW = 5               # k
 W2V_NEG = 10                 # K noise samples per positive pair
 W2V_LR = 1e-3                # Adam learning rate (eta)
 W2V_BATCH = 512              # >= 512 required
-W2V_EPOCHS = 5               # >= 5 required
+W2V_EPOCHS = 15              # >= 5 required; 15 chosen on the dev analogy pool
 W2V_NOISE_POWER = 0.75       # P_n(w) ~ f(w)^(3/4)
 W2V_TABLE_SIZE = 10_000_000  # unigram noise table size (as in word2vec.c)
-W2V_SUBSAMPLE = None         # frequent-word sub-sampling threshold t (None = off)
+W2V_SUBSAMPLE = None         # sub-sampling threshold t; off (best on the dev pool)
 
 # ----------------------------------------------------------------------------
 # Part 2 - sequence labelling
