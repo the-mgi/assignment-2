@@ -325,15 +325,17 @@ md("""
 
 ### Nearest neighbours and analogy
 
-The Roman-Urdu query words are mapped to Urdu script and then through the A1 pipeline. Note
+The eight Roman-Urdu query words of the brief are mapped to Urdu script and then through the A1
+pipeline; two more words (cricket, oil) are added so that 10 query words are reported. Note
 *Aabadi* (آبادی) becomes `آباد` after A1 stemming — the same token as the *-abad* of city names
 (اسلام آباد، ایبٹ آباد), so its neighbours are dominated by places.
 """)
 
 code("""
+from eval_sets import EXTRA_QUERY_WORDS
 idx_c3 = CosineIndex(E_c3, w2i, counts=clean_counts, min_count=5)
 rows = []
-for roman, urdu in QUERY_WORDS.items():
+for roman, urdu in {**QUERY_WORDS, **EXTRA_QUERY_WORDS}.items():
     q = cleaned(urdu)
     nn = idx_c3.neighbours(q, 10)
     rows.append({"query": roman, "Urdu": urdu, "A1 form": q, "freq": int(clean_counts[w2i[q]]),

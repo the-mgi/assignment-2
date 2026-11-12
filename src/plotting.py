@@ -33,7 +33,18 @@ PALETTE = ["#1f77b4", "#d62728", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b",
            "#e377c2", "#17becf", "#bcbd22", "#7f7f7f", "#393b79", "#637939"]
 
 
+def check_labels(fig) -> None:
+    """The brief: every figure needs axis labels and a title."""
+    sup = fig._suptitle.get_text() if fig._suptitle is not None else ""
+    for ax in fig.axes:
+        if not (ax.get_title() or sup):
+            raise ValueError("figure without a title")
+        if not ax.get_xlabel() or not ax.get_ylabel():
+            raise ValueError(f"axes '{ax.get_title()}' is missing an axis label")
+
+
 def savefig(fig, name: str) -> Path:
+    check_labels(fig)
     path = C.FIG / name
     fig.savefig(path)
     return path

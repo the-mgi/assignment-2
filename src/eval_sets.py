@@ -15,6 +15,8 @@ from a1_bridge import a1_normalize  # noqa: E402
 QUERY_WORDS = {"Pakistan": "پاکستان", "Hukumat": "حکومت", "Adalat": "عدالت",
                "Maeeshat": "معیشت", "Fauj": "فوج", "Sehat": "صحت", "Taleem": "تعلیم",
                "Aabadi": "آبادی"}
+# two more query words so that 10 words are reported (grading rubric, Section 2.2)
+EXTRA_QUERY_WORDS = {"Cricket": "کرکٹ", "Tail (oil)": "تیل"}
 
 # Section 1.2: >= 10 query words for PPMI nearest neighbours
 PPMI_QUERIES = ["پاکستان", "حکومت", "عدالت", "فوج", "صحت", "تعلیم", "کرکٹ", "تیل",

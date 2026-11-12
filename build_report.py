@@ -34,8 +34,8 @@ h1 = ParagraphStyle("h1", fontName=BOLD, fontSize=13, leading=18, spaceBefore=6,
                     keepWithNext=1)
 title = ParagraphStyle("title", fontName=BOLD, fontSize=14, leading=18, alignment=1)
 sub = ParagraphStyle("sub", fontName=FONT, fontSize=12, leading=18, alignment=1)
-cell = ParagraphStyle("cell", fontName=FONT, fontSize=10, leading=12)
-cellb = ParagraphStyle("cellb", fontName=BOLD, fontSize=10, leading=12)
+cell = ParagraphStyle("cell", fontName=FONT, fontSize=12, leading=14)
+cellb = ParagraphStyle("cellb", fontName=BOLD, fontSize=12, leading=14)
 
 
 def table(rows, widths):
