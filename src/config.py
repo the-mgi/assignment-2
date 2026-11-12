@@ -13,8 +13,7 @@ STUDENT_ID = "i25-8007"
 SECTION = "DS-A"
 COURSE = "DS 5007: Natural Language Processing"
 REPO_NAME = f"{STUDENT_ID}-NLP-Assignment2"
-# Filled in once the public GitHub repository exists (see README.md).
-REPO_URL = f"https://github.com/<github-username>/{REPO_NAME}"
+REPO_URL = "https://github.com/the-mgi/assignment-2"
 SUBMISSION_STEM = f"{STUDENT_ID}_Assignment2_{SECTION}"
 
 # ----------------------------------------------------------------------------

@@ -1,5 +1,8 @@
 """Build the submission zip i25-8007_Assignment2_DS-A.zip.
 
+    python package_submission.py          # only the 13 files required by the brief
+    python package_submission.py --full   # + code, tests, figures, outputs (= the repository)
+
 Layout (required items of the brief first; source code, tests, figures and
 outputs are added so the zip is runnable and mirrors the GitHub repository):
 
@@ -40,6 +43,9 @@ def main() -> None:
     if missing:
         sys.exit(f"missing required files: {missing}")
     files = list(REQUIRED)
+    if "--full" not in sys.argv:             # default: only the files the brief lists
+        EXTRA_DIRS.clear()
+        EXTRA_FILES.clear()
     for d in EXTRA_DIRS:
         for p in sorted((ROOT / d).rglob("*")):
             if p.is_file() and not (set(p.relative_to(ROOT).parts) & SKIP):

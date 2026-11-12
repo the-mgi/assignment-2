@@ -87,9 +87,9 @@ Other entry points:
 python build_notebook.py                 # regenerate the notebook from its source
 python scripts/w2v_config_search.py      # re-run the C3 configuration search (~30 min)
 python build_report.py                   # rebuild report.pdf from outputs/results.json
-python package_submission.py             # build i25-8007_Assignment2_DS-A.zip
+python package_submission.py             # build the submission zip (13 required files; --full adds the code)
 ```
 
 All randomness is seeded (seed 42; Part 2/3 comparisons additionally use seeds 7 and 123).
 
-Repository: https://github.com/&lt;github-username&gt;/i25-8007-NLP-Assignment2
+Repository: https://github.com/the-mgi/assignment-2
